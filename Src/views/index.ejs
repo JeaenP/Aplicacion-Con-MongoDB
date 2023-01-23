@@ -6,37 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicacion</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css">
 </head>
 
 <body>
 
-   
-    <div class="container p-5">
+
+    <div class="container p-4">
         <div class="row">
             <div class="col-md-4 offset-md-4">
                 <form action="/create" method="POST" class="card card-body">
-					<div class="form-group">
-						<input type="text" name="task" placeholder="Write A new Task" class="form-control" autofocus>
+                    <div class="form-group">
+                        <input type="text" name="task" placeholder="Write A new Task" class="form-control" autofocus>
                     </div>
                     <div class="form-group">
-						<input type="text" name="description" placeholder="Write A Description" class="form-control">
+                        <input type="text" name="description" placeholder="Write A Description" class="form-control">
                     </div>
                     <button class="btn btn-primary">
                         Save
                     </button>
-				</form>
+                </form>
+                <div class="container p-1">
 
+                </div>
                 <% Tasks.forEach(function (task) { %>
-                    <card class="card card-body">
-                        <h5><%= task.task %></h5>
-                        <p><%= task.description %></p>
-                    </card>
-                <% }) %>
+                    <div class="container p-1" style="text-align: center;">
+                        <form action="/delete/:id" method="post">
+                            
+                            <button class="btn btn-primary" type="submit">
+                                
+                                <card class="card card-body p-2">
+                                    <h5>
+                                        <%= task.task %>
+                                    </h5>
+                                    <p>
+                                        <%= task.description %>
+                                    </p>
+                                </card>
+                            </button>
+                            
+                        </form>
+                        
+                    </div>
 
+                    <% }) %>
             </div>
         </div>
     </div>
+
+
+
 </body>
 
 </html>

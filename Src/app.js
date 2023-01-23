@@ -28,6 +28,11 @@ app.post('/create', async (req, res) => {
     res.redirect('/');
 })
 
+app.post('/delete/:id', async (req, res) => {
+    console.log(req.params.description)
+    res.redirect('/');
+});
+
 
 //ARCHIVOS ESTATICOS
 app.use(express.static(__dirname + '/public'));
