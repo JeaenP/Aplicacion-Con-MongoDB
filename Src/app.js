@@ -29,6 +29,7 @@ app.post('/create', async (req, res) => {
 
 app.post('/delete', async (req, res) => {
     await Task.findByIdAndDelete(req.body.id)
+    
     res.redirect('/');
 });
 
@@ -38,15 +39,14 @@ app.post('/edit', async (req, res) => {
 });
 
 app.post('/put', async (req, res) => {
-    const Tasks = await Task.find();
-    const ntask = req.body.task
-    const ndescription = req.body.description
-    
+    const {ntask, ndescription} = req.body
     console.log(req.body.id)
     console.log(req.body.ntask)
     console.log(req.body.ndescription)
-    await Task.findByIdAndUpdate(req.body.id, {ntask, ndescription})
+    await console.log(Task.findById(req.body.id))
+    await Task.findByIdAndUpdate(req.body.id, {task: ntask, description: ndescription})
     res.redirect('/')
+    
 });
 
 
