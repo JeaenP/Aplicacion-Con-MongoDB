@@ -1,8 +1,9 @@
-const mongosse = require('mongoose')
+const mongoose = require('mongoose')
+mongoose.set('strictQuery', true);
 
-mongosse.connect('mongodb+srv://Jean:jp2583462@cluster0.ai7ogxe.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://Jean:jp2583462@cluster0.ai7ogxe.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true 
 })
     .then(() => console.log('base de datos conectada'))
-    .catch(e => console.log(e)); 
+    .catch(e => console.log(e));
